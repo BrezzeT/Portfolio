@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App Project Details | Evgeniy Ishenko</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .project-details {
+            padding: 120px 50px 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-header h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .project-header p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-content {
+            background: rgba(39, 39, 39, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(230, 57, 70, 0.2);
+        }
+
+        .project-content h2 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .project-content p {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            color: #cccccc;
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: rgba(230, 57, 70, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: #e63946;
+            font-size: 0.9rem;
+        }
+
+        .setup-instructions {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .setup-instructions h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .setup-instructions ol {
+            color: #cccccc;
+            padding-left: 20px;
+        }
+
+        .setup-instructions li {
+            margin: 10px 0;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #e63946;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #cf323f;
+        }
+
+        @media (max-width: 768px) {
+            .project-details {
+                padding: 100px 20px 30px;
+            }
+
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .project-content {
+                padding: 20px;
+            }
+
+            .project-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Gallery Styles */
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .modal-caption {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #ffffff;
+            font-size: 1.1rem;
+            padding: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .close-modal:hover {
+            color: #e63946;
+        }
+
+        @media (max-width: 768px) {
+            .project-gallery {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .gallery-image {
+                height: 180px;
+            }
+
+            .close-modal {
+                top: 10px;
+                right: 25px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h2><span class="logo-letter">P</span>ortfolio</h2>
+        </div>
+        <div class="burger-menu">
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+        </div>
+        <nav class="menu">
+            <a href="index.html#home">About me</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contacts">Contact</a>
+        </nav>
+    </header>
+
+    <div class="project-details">
+        <div class="project-header">
+            <h1>Real-time Chat Application</h1>
+            <p>A full-featured chat application with real-time messaging capabilities, user authentication, and multiple chat rooms.</p>
+        </div>
+
+        <div class="project-content">
+            <h2>Project Overview</h2>
+            <p>This chat application is a comprehensive solution for real-time communication, featuring a modern user interface and robust backend functionality. The application supports multiple chat rooms, user authentication, and message history.</p>
+
+            <h2>Project Gallery</h2>
+            <div class="project-gallery">
+                <div class="gallery-item">
+                    <img src="img/chat/register.png" alt="Chat App Interface" class="gallery-image">
+                    <div class="gallery-caption">Register Form</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/chat/viewmess.png" alt="Chat Rooms" class="gallery-image">
+                    <div class="gallery-caption">View Messages</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/chat/message.png" alt="All Messages" class="gallery-image">
+                    <div class="gallery-caption">All Messages</div>
+                </div>
+            </div>
+
+            <h2>Key Features</h2>
+            <ul class="features-list">
+                <li>Real-time messaging using WebSocket technology</li>
+                <li>User authentication and authorization</li>
+                <li>Multiple chat rooms support</li>
+                <li>Message history and persistence</li>
+                <li>Responsive and modern UI design</li>
+                <li>Online/offline user status</li>
+                <li>Message notifications</li>
+            </ul>
+
+            <h2>Technology Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-item">JavaScript</span>
+                <span class="tech-item">MongoDB</span>
+                <span class="tech-item">Firebase</span>
+                <span class="tech-item">Cloudinary</span>
+                <span class="tech-item">Render</span>
+                <span class="tech-item">WebSocket</span>
+                <span class="tech-item">HTML5</span>
+                <span class="tech-item">CSS3</span>
+            </div>
+
+            <h2>Setup Instructions</h2>
+            <div class="setup-instructions">
+                <h3>Prerequisites</h3>
+                <ol>
+                    <li>Node.js and npm</li>
+                    <li>MongoDB Atlas account</li>
+                    <li>Firebase account</li>
+                    <li>Cloudinary account</li>
+                </ol>
+
+                <h3>Installation Steps</h3>
+                <ol>
+                    <li>Clone the repository: <code>git clone https://github.com/BrezzeT/chat-app.git</code></li>
+                    <li>Set up environment variables:
+                        <ul>
+                            <li>MongoDB connection string</li>
+                            <li>Firebase configuration</li>
+                            <li>Cloudinary credentials</li>
+                        </ul>
+                    </li>
+                    <li>Install dependencies: <code>npm install</code></li>
+                    <li>Start the development server: <code>npm start</code></li>
+                </ol>
+
+                <h3>Deployment</h3>
+                <p>The application is deployed on Render. To deploy your own instance:</p>
+                <ol>
+                    <li>Create a Render account</li>
+                    <li>Connect your GitHub repository</li>
+                    <li>Configure environment variables in Render dashboard</li>
+                    <li>Deploy the application</li>
+                </ol>
+            </div>
+
+            <h2>Important Notes</h2>
+            <p>⚠️ The application requires the following services to be properly configured:</p>
+            <ul class="features-list">
+                <li>MongoDB Atlas database connection</li>
+                <li>Firebase authentication and real-time features</li>
+                <li>Cloudinary for media storage</li>
+                <li>Render for hosting</li>
+            </ul>
+        </div>
+
+        <a href="index.html#projects" class="back-button">Back to Projects</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const burgerMenu = document.querySelector('.burger-menu');
+            const menu = document.querySelector('.menu');
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            const closeModal = document.querySelector('.close-modal');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            // Burger menu functionality
+            burgerMenu.addEventListener('click', function() {
+                this.classList.toggle('active');
+                menu.classList.toggle('active');
+            });
+
+            // Modal functionality
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const img = this.querySelector('.gallery-image');
+                    const caption = this.querySelector('.gallery-caption');
+                    
+                    modal.style.display = 'flex';
+                    modalImage.src = img.src;
+                    modalImage.alt = img.alt;
+                    modalCaption.textContent = caption.textContent;
+                });
+            });
+
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

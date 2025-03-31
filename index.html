@@ -37,6 +37,11 @@
             <div class="skill-item">Node.js</div>
             <div class="skill-item">Vue.js</div>
             <div class="skill-item">Vite</div>
+            <div class="skill-item">MongoDB</div>
+            <div class="skill-item">Firebase</div>
+            <div class="skill-item">Cloudinary</div>
+            <div class="skill-item">Render</div>
+            <div class="skill-item">WebSocket</div>
         </div>
         <div class="content">
             <img src="img/photo.png" alt="photo">
@@ -67,79 +72,113 @@
     <section id="projects" class="projects-section">
         <div class="projects-container">
             <h2 class="section-title">My Projects</h2>
-            <div class="projects-grid">
-                <!-- Project Card 1 -->
-                <div class="project-card">
-                    <img src="img/anime.png" alt="Anime Site Project" class="project-image">
-                    <div class="project-content">
-                        <h3 class="project-title">Anime Site</h3>
-                        <p class="project-description">Modern anime streaming website with genre filtering, release year, and status options. Features a stylish dark theme, responsive interface, and intuitive navigation.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Responsive Design</span>
+            
+            <!-- Major Projects -->
+            <div class="projects-category">
+                <h3 class="category-title">Major Projects</h3>
+                <div class="projects-grid">
+                    <!-- Chat App Project -->
+                    <div class="project-card">
+                        <img src="img/chat.png" alt="Chat App Project" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Real-time Chat Application</h3>
+                            <p class="project-description">Full-featured real-time chat application with user authentication, message history, and multiple chat rooms. Requires active database connection to function.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">Cloudinary</span>
+                                <span class="tech-tag">Render</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/BrezzeT/chat-app" class="project-link github-link" target="_blank">GitHub</a>
+                            </div>
+                            <div class="project-status">
+                                <span class="status-tag">⚠️ Requires Service Configuration</span>
+                                <a href="chat-app-details.html" class="details-link">Подробнее</a>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <a href="https://brezzet.github.io/AnimeSite.github.io/main.html" class="project-link live-link" target="_blank">Live Demo</a>
-                            <a href="https://github.com/Brezzet/AnimeSite.github.io" class="project-link github-link" target="_blank">GitHub</a>
+                    </div>
+
+                    <!-- Anime Site Project -->
+                    <div class="project-card">
+                        <img src="img/anime.png" alt="Anime Site Project" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Anime Site</h3>
+                            <p class="project-description">Modern anime streaming website with genre filtering, release year, and status options. Features a stylish dark theme, responsive interface, and intuitive navigation.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Responsive Design</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://brezzet.github.io/AnimeSite.github.io/main.html" class="project-link live-link" target="_blank">Live Demo</a>
+                                <a href="https://github.com/Brezzet/AnimeSite.github.io" class="project-link github-link" target="_blank">GitHub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Project Card 2 -->
-                <div class="project-card">
-                    <img src="img/login.png" alt="Register Form Project" class="project-image">
-                    <div class="project-content">
-                        <h3 class="project-title">Login & Registration System</h3>
-                        <p class="project-description">Modern authentication system with clean design, form validation, and social media integration. Features smooth transitions and responsive design.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Font Awesome</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://brezzet.github.io/Register-form/" class="project-link live-link" target="_blank">Live Demo</a>
-                            <a href="https://github.com/BrezzeT/Register-form" class="project-link github-link" target="_blank">GitHub</a>
+            <!-- Mini Projects -->
+            <div class="projects-category">
+                <h3 class="category-title">Mini Applications</h3>
+                <div class="projects-grid">
+                    <!-- Login & Registration System -->
+                    <div class="project-card">
+                        <img src="img/login.png" alt="Register Form Project" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Login & Registration System</h3>
+                            <p class="project-description">Modern authentication system with clean design, form validation, and social media integration. Features smooth transitions and responsive design.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Font Awesome</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://brezzet.github.io/Register-form/" class="project-link live-link" target="_blank">Live Demo</a>
+                                <a href="https://github.com/BrezzeT/Register-form" class="project-link github-link" target="_blank">GitHub</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Project Card 3 -->
-                <div class="project-card">
-                    <img src="img/calc.png" alt="Calculator Project" class="project-image">
-                    <div class="project-content">
-                        <h3 class="project-title">Modern Calculator</h3>
-                        <p class="project-description">Stylish calculator with modern design and animations. Supports basic mathematical operations with a user-friendly interface and responsive layout.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Animations</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://brezzet.github.io/calculator/" class="project-link live-link" target="_blank">Live Demo</a>
-                            <a href="https://github.com/BrezzeT/calculator" class="project-link github-link" target="_blank">GitHub</a>
+                    <!-- Calculator Project -->
+                    <div class="project-card">
+                        <img src="img/calc.png" alt="Calculator Project" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Modern Calculator</h3>
+                            <p class="project-description">Stylish calculator with modern design and animations. Supports basic mathematical operations with a user-friendly interface and responsive layout.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Animations</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://brezzet.github.io/calculator/" class="project-link live-link" target="_blank">Live Demo</a>
+                                <a href="https://github.com/BrezzeT/calculator" class="project-link github-link" target="_blank">GitHub</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Project Card 4 -->
-                <div class="project-card">
-                    <img src="img/weath.png" alt="Weather App Project" class="project-image">
-                    <div class="project-content">
-                        <h3 class="project-title">Weather App</h3>
-                        <p class="project-description">Modern weather app with support for Ukrainian cities. Displays temperature, wind speed, humidity, and other weather conditions with a stylish and responsive interface.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Weather API</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://brezzet.github.io/Wetaher-app/" class="project-link live-link" target="_blank">Live Demo</a>
-                            <a href="https://github.com/BrezzeT/Wetaher-app" class="project-link github-link" target="_blank">GitHub</a>
+                    <!-- Weather App Project -->
+                    <div class="project-card">
+                        <img src="img/weath.png" alt="Weather App Project" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Weather App</h3>
+                            <p class="project-description">Modern weather app with support for Ukrainian cities. Displays temperature, wind speed, humidity, and other weather conditions with a stylish and responsive interface.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Weather API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://brezzet.github.io/Wetaher-app/" class="project-link live-link" target="_blank">Live Demo</a>
+                                <a href="https://github.com/BrezzeT/Wetaher-app" class="project-link github-link" target="_blank">GitHub</a>
+                            </div>
                         </div>
                     </div>
                 </div>
