@@ -157,35 +157,41 @@ header {
 
 .skills-container {
     position: absolute;
-    left: 0;
+    left: 15%;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
     padding: 20px;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #e63946 rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    border: 1px solid rgba(230, 57, 70, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
 .skills-container::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
 }
 
 .skills-container::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .skills-container::-webkit-scrollbar-thumb {
     background-color: #e63946;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .skill-item {
-    background: rgba(39, 39, 39, 0.9);
+    background: rgba(39, 39, 39, 0.8);
     padding: 10px 20px;
     border-radius: 20px;
     color: #ffffff;
@@ -193,12 +199,32 @@ header {
     border: 1px solid rgba(230, 57, 70, 0.2);
     transition: all 0.3s ease;
     white-space: nowrap;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #e63946;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
 }
 
 .skill-item:hover {
-    transform: translateX(10px);
+    transform: translateX(5px);
     background: rgba(230, 57, 70, 0.1);
     border-color: #e63946;
+    padding-left: 25px;
+}
+
+.skill-item:hover::before {
+    transform: scaleY(1);
 }
 
 .main {
@@ -303,28 +329,52 @@ header {
     transform: scale(1.02);
 }
 
+@media (max-width: 1200px) {
+    .skills-container {
+        left: 10%;
+    }
+}
+
+@media (max-width: 992px) {
+    .skills-container {
+        left: 5%;
+    }
+}
+
 @media (max-width: 768px) {
     .skills-container {
         position: relative;
+        left: 0;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 10px;
+        padding: 15px;
         gap: 10px;
         transform: none;
         top: 0;
         max-height: none;
         overflow-y: visible;
-        margin-bottom: 20px;
+        margin: 20px auto;
+        width: 90%;
+        background: none;
+        backdrop-filter: none;
+        border: none;
+        box-shadow: none;
     }
 
     .skill-item {
         font-size: 0.8rem;
         padding: 8px 15px;
+        text-align: center;
     }
 
     .skill-item:hover {
         transform: translateY(-3px);
+        padding-left: 15px;
+    }
+
+    .skill-item::before {
+        display: none;
     }
 }
 
